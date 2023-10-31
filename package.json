@@ -1,0 +1,30 @@
+{
+  "name": "elysium-innovations-interactive-ai-metaverse-demo",
+  "version": "1.0.0",
+  "description": "An interactive AI-driven metaverse demo by Elysium Innovations",
+  "main": "src/App.js",
+  "scripts": {
+    "start": "next start",
+    "dev": "next dev",
+    "build": "next build",
+    "test": "jest"
+  },
+  "keywords": [
+    "AI",
+    "Metaverse",
+    "Next.js",
+    "React",
+    "Elysium Innovations"
+  ],
+  "author": "Dr. A. I. Virtuoso",
+  "license": "MIT",
+  "dependencies": {
+    "next": "^11.1.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "tailwindcss": "^2.2.16"
+  },
+  "devDependencies": {
+    "jest": "^27.2.3"
+  }
+}

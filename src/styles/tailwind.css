@@ -1,0 +1,58 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom styles for Elysium Innovations' Interactive AI Metaverse Demo */
+
+/* General styles */
+body {
+  @apply bg-gray-100 text-gray-800;
+}
+
+/* Header styles */
+.header {
+  @apply bg-blue-500 text-white py-4 px-6;
+}
+
+/* Main content styles */
+.main-content {
+  @apply p-6;
+}
+
+/* AI Butler styles */
+.ai-butler {
+  @apply bg-white rounded-lg shadow-md p-6 my-4;
+}
+
+/* AI Agent styles */
+.ai-agent {
+  @apply bg-white rounded-lg shadow-md p-6 my-4;
+}
+
+/* Interactive Metaverse styles */
+.interactive-metaverse {
+  @apply bg-white rounded-lg shadow-md p-6 my-4;
+}
+
+/* Gamified Learning styles */
+.gamified-learning {
+  @apply bg-white rounded-lg shadow-md p-6 my-4;
+}
+
+/* Button styles */
+.button {
+  @apply bg-blue-500 text-white rounded-md px-4 py-2;
+}
+
+.button:hover {
+  @apply bg-blue-600;
+}
+
+/* Accessibility and Usability styles */
+.accessible {
+  @apply text-lg;
+}
+
+.usable {
+  @apply cursor-pointer;
+}

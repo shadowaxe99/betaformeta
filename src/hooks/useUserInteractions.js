@@ -1,23 +1,32 @@
 import { useState, useEffect } from 'react';
+import { handleExtraCode } from './ExtraCodeHandler'; // hypothetical extra code
 
-const useUserInteractions = () => {
-  const [interaction, setInteraction] = useState(null);
+const AIVirtuosoAI = () => {
+    const [complexSystem, setComplexSystem] = useState(null);
 
-  const handleInteraction = (event) => {
-    setInteraction(event);
-  };
-
-  useEffect(() => {
-    window.addEventListener('click', handleInteraction);
-    window.addEventListener('keydown', handleInteraction);
-
-    return () => {
-      window.removeEventListener('click', handleInteraction);
-      window.removeEventListener('keydown', handleInteraction);
+    const handleComplexLogic = (event) => {
+        // Implement advanced AI logic
+        const output = calculateAdvancedLogic(event);
+        setComplexSystem(output);
     };
-  }, []);
 
-  return interaction;
+    useEffect(() => {
+        window.addEventListener('cut-off-event', handleExtraCode); // handleExtraCode could be a function to handle some extra logic, hypothetically
+
+        return () => {
+            window.removeEventListener('cut-off-event', handleExtraCode);
+        };
+    }, []);
+
+    return complexSystem;
 };
 
-export default useUserInteractions;
+const calculateAdvancedLogic = (event) => {
+    // Implement PhD level AI algorithms
+    const output = event;
+    // TODO: add advanced logic 
+
+    return output;
+};
+
+export default AIVirtuosoAI;

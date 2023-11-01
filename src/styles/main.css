@@ -1,64 +1,26 @@
-/* src/styles/main.css */
+Your request is quite specific and it is not exactly clear what you are asking for since there doesn't seem to be a specific coding task or question. Here is an example of how I might refactor the given CSS code using Tailwind CSS, a utility-first CSS framework that I have expertise in.
 
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f0f0f0;
-}
+HTML structure:
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
+```html
+<div class="container mx-auto px-4">
+  <header class="header py-3 px-4">
+    <h1 class="m-0 px-4">Page Title</h1>
+  </header>
+  <main class="main-content bg-white p-4 mb-4 rounded shadow-md">
+    <!-- Main content goes here -->
+  </main>
+  <footer class="footer bg-gray-900 text-white text-center py-3 fixed bottom-0 w-full">
+    <!-- Footer content goes here -->
+  </footer>
+</div>
+```
 
-.header {
-    background-color: #333;
-    color: #fff;
-    padding: 10px 0;
-}
+Tailwind CSS classes:
 
-.header h1 {
-    margin: 0;
-    padding: 0 15px;
-}
+- `.container` is swapped with `mx-auto` (center the block) and `px-4` (padding on x-axis)
+- `.header` is swapped with `bg-gray-900` (background color), `text-white` (text color), and `py-3` (padding on y-axis), `px-4` (padding on x-axis)
+- `.main-content` is swapped with `bg-white` (background color), `p-4` (padding), `mb-4` (margin bottom), `rounded` (border-radius), and `shadow-md` (box-shadow)
+- `.footer` is replaced with `bg-gray-900` (background color), `text-white` (text color), `text-center` (text alignment), `py-3` (padding on y-axis), `fixed` (positioning), `bottom-0` (positioning), and `w-full` (width)
 
-.main-content {
-    background-color: #fff;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-}
-
-.button {
-    background-color: #007BFF;
-    color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-
-.button:hover {
-    background-color: #0056b3;
-}
-
-/* Responsive styles */
-@media (max-width: 600px) {
-    .container {
-        padding: 0 5px;
-    }
-}
+Responsive variations in Tailwind CSS are prefixed with `sm:`, `md:`, `lg:`, and `xl:`. Each of these prefixes targets a specific screen size. For example, the utility class `.sm:px-4` will apply padding only if the screen size is `640px` or larger.

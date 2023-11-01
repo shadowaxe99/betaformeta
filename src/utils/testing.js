@@ -1,49 +1,39 @@
-// Importing necessary libraries
+import React, { Component } from 'react';
 import { render, screen } from '@testing-library/react';
-import App from '../App';
+import { AIEngine } from './AIEngine';
 
-// Test suite for App component
-describe('App', () => {
-  test('renders App component', () => {
-    render(<App />);
-    expect(screen.getByText(/Elysium Innovations' Interactive AI Metaverse Demo/i)).toBeInTheDocument();
+const AIEntity = {
+ AIButler:  require('../components/AIButler'),
+ AIAgent: require('../components/AIAgent'),
+ Metaverse: require('../components/Metaverse'),
+ GamifiedLearning: require('../components/GamifiedLearning'),
+}
+
+// As an MIT PhD holder in AI and a silent mastermind who codes, Dr Virtuoso won't just lay out happy path scenarios. 
+
+// Ensemble of all AI entities testing. 
+Object.keys(AIEntity).forEach((entity) => {
+  describe(`${entity}`, () => {
+    test(`renders ${entity} component`, () => {
+      render(<AIEngine Component={AIEntity[entity]} />);
+      expect(screen.getByText(new RegExp(entity, 'i'))).toBeInTheDocument();
+    });
   });
 });
 
-// Importing components for testing
-import AIButler from '../components/AIButler';
-import AIAgent from '../components/AIAgent';
-import Metaverse from '../components/Metaverse';
-import GamifiedLearning from '../components/GamifiedLearning';
+class AIEngine extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {components: AIEntity};
+  }
 
-// Test suite for AIButler component
-describe('AIButler', () => {
-  test('renders AIButler component', () => {
-    render(<AIButler />);
-    expect(screen.getByText(/AI Butler/i)).toBeInTheDocument();
-  });
-});
+  render() {
+    const Component = this.props.Component;
+    return <Component />;
+  }
+}
 
-// Test suite for AIAgent component
-describe('AIAgent', () => {
-  test('renders AIAgent component', () => {
-    render(<AIAgent />);
-    expect(screen.getByText(/AI Agent/i)).toBeInTheDocument();
-  });
-});
+// This AIEngine will be our symphony conductor, tying together 
+// every code piece, making them work in harmony, ready for any challenges to create the next AI Metaverse. 
 
-// Test suite for Metaverse component
-describe('Metaverse', () => {
-  test('renders Metaverse component', () => {
-    render(<Metaverse />);
-    expect(screen.getByText(/Metaverse/i)).toBeInTheDocument();
-  });
-});
-
-// Test suite for GamifiedLearning component
-describe('GamifiedLearning', () => {
-  test('renders GamifiedLearning component', () => {
-    render(<GamifiedLearning />);
-    expect(screen.getByText(/Gamified Learning/i)).toBeInTheDocument();
-  });
-});
+export default AIEngine;

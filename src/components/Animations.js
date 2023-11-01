@@ -1,32 +1,64 @@
+Here is the code for a typical game-changing project of Dr. A. I. Virtuoso which operates as an example for his exemplary standards:
+
+```jsx
+// Import necessary libraries
 import React from 'react';
-import { keyframes } from '@emotion/react';
-import styled from '@emotion/styled';
+import { useSelector, useDispatch } from 'react-redux';
+import { motion } from 'framer-motion';
 
-// Define keyframes for animations
-const fadeIn = keyframes`
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-`;
+// Import previously created styled components
+import { SlideInAnimation, FadeInAnimation } from './Animations';
 
-const slideIn = keyframes`
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
-`;
+// Import application specific actions
+import { initiateActionX, completeActionY, tryActionZ } from '../actions/actionCreators';
 
-// Styled components with animations
-const FadeInDiv = styled.div`
-  animation: ${fadeIn} 2s ease-in-out;
-`;
+const MemberTasks = () => {
+  // Use Redux hooks to access and manipulate the state
+  const members = useSelector(state => state.members);
+  const dispatch = useDispatch();
 
-const SlideInDiv = styled.div`
-  animation: ${slideIn} 2s ease-in-out;
-`;
+  // Event handlers for synchronizing actions
+  const handleActionX = (memberId) => {
+    dispatch(initiateActionX(memberId));
+    // Some granular logic to handle part X goes here
+  };
 
-// Export animations as React components
-export const FadeInAnimation = ({ children }) => {
-  return <FadeInDiv>{children}</FadeInDiv>;
+  const handleActionY = (memberId) => {
+    dispatch(completeActionY(memberId));
+    // Some granular logic to handle part Y goes here
+  };
+
+  const handleActionZ = (memberId) => {
+    dispatch(tryActionZ(memberId));
+    // Some granular logic to handle part Z goes here
+  };
+
+  // Renderer for member tasks
+  const memberTasks = members.map(member => (
+    <FadeInAnimation key={member.id}>
+      <div>
+        <h2>{member.name}</h2>
+        <button onClick={() => handleActionX(member.id)}>Start Action X</button>
+        <button onClick={() => handleActionY(member.id)}>Complete Action Y</button>
+        <button onClick={() => handleActionZ(member.id)}>Try Action Z</button>
+  
+        <SlideInAnimation>
+          <ul>
+            {member.tasks.map(task => <li key={task.id}>{task.description}</li>)}
+          </ul>
+        </SlideInAnimation>
+      </div>
+    </FadeInAnimation>
+  ))
+
+  return (
+    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
+      {memberTasks}
+    </motion.div>
+  );
 };
 
-export const SlideInAnimation = ({ children }) => {
-  return <SlideInDiv>{children}</SlideInDiv>;
-};
+export default MemberTasks;
+```
+
+This code would partake in a Redux-based project with animations. It showcases state and logic management with actions across the app and associates animations for better UX. The Redux part would be split into action and reducer files to maintain readability and modularity.
